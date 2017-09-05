@@ -16,7 +16,7 @@ public class DatasetJDBC {
 		String sql = "select * from dataset";
 		List<DatasetBean> list= null;
 		try {
-			list = (List<DatasetBean>) qr.query(new DBconn().getConn(), sql, new BeanListHandler(DatasetBean.class));
+			list = (List<DatasetBean>) qr.query(DBconn.getConn(), sql, new BeanListHandler(DatasetBean.class));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -27,7 +27,7 @@ public class DatasetJDBC {
 		String sql = "select * from dataset where id=?";
 		List<DatasetBean> list= null;
 		try {
-			list = (List<DatasetBean>) qr.query(new DBconn().getConn(), sql, new BeanListHandler(DatasetBean.class), id);
+			list = (List<DatasetBean>) qr.query(DBconn.getConn(), sql, new BeanListHandler(DatasetBean.class), id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -37,10 +37,21 @@ public class DatasetJDBC {
 		QueryRunner qr = new QueryRunner();
 		String sql = "update dataset set downloads=downloads+1 where id=?";
 		try {
-			return qr.update(new DBconn().getConn(), sql, id)==1;
+			return qr.update(DBconn.getConn(), sql, id)==1;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	public static boolean rate(int id, int rate) {
+		QueryRunner qr = new QueryRunner();
+		String sql = "update dataset set rate=rate+?, rateuser=rateuser+1 where id=?";
+		try {
+			return qr.update(DBconn.getConn(), sql, rate, id)==1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
 	}
 }

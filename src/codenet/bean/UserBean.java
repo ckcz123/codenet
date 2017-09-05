@@ -3,22 +3,29 @@ package codenet.bean;
 
 public class UserBean {
 
-	private int id;
+	private long id;
 	private String username;
+	private String password;
 	private String avatar;
 	private String email;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-	public String getName() {
+	public String getUsername() {
 		return username;
 	}
-	public void setName(String name) {
+	public void setUsername(String name) {
 		this.username = name;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getAvatar() {
 		return avatar;
@@ -43,6 +50,7 @@ public class UserBean {
 		StringBuilder sb = new StringBuilder();
 		sb.append("id=").append(id).append('\n');
 		sb.append("username=").append(username).append('\n');
+		sb.append("password=").append(password).append('\n');
 		sb.append("avatar=").append(avatar).append('\n');
 		sb.append("email=").append(email).append('\n');
 		return sb.toString();

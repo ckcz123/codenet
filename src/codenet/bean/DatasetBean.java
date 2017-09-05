@@ -9,7 +9,9 @@ public class DatasetBean {
 	private String detail;
 	private String contributor;
 	private String reference;
-	private int dowloads;
+	private int downloads;
+	private int rate;
+	private int rateuser;
 	public int getId() {
 		return id;
 	}
@@ -40,11 +42,11 @@ public class DatasetBean {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
-	public int getDowloads() {
-		return dowloads;
+	public int getDownloads() {
+		return downloads;
 	}
-	public void setDowloads(int dowloads) {
-		this.dowloads = dowloads;
+	public void setDownloads(int downloads) {
+		this.downloads = downloads;
 	}
 	
 	public String getFilename() {
@@ -60,6 +62,18 @@ public class DatasetBean {
 	public void setShortdetail(String shortdetail) {
 		this.shortdetail = shortdetail;
 	}
+	public int getRate() {
+		return rate;
+	}
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+	public int getRateuser() {
+		return rateuser;
+	}
+	public void setRateuser(int rateuser) {
+		this.rateuser = rateuser;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		return ((DatasetBean)obj).id==id;
@@ -72,7 +86,7 @@ public class DatasetBean {
 		sb.append("detail=").append(detail).append('\n');
 		sb.append("contributor=").append(contributor).append('\n');
 		sb.append("reference=").append(reference).append('\n');
-		sb.append("dowloads=").append(dowloads).append('\n');
+		sb.append("dowloads=").append(downloads).append('\n');
 		return sb.toString();
 	}
 	

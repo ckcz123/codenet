@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<ul class="media-list">
+	{{#comments}}
+	<li class="media media-replied"><a class="pull-left" href="#">
+			<img class="media-object img-circle" src="{{avatar}}" alt="profile">
+	</a>
+		<div class="media-body">
+			<div class="well well-lg">
+				<h4 class="media-heading text-uppercase reviews">
+					{{username}}
+				</h4>
+				<span class="media-date text-uppercase reviews list-inline">
+					{{date}} </span>
+				<p class="media-comment">{{content}}</p>
+				<button class="btn btn-info btn-circle text-uppercase"
+								onclick="openReply('{{id}}', '{{username}}')"
+								id="reply"><span class="glyphicon glyphicon-share-alt"></span>
+								回复</button>
+			</div>
+		</div></li> {{/comments}}
+</ul>
