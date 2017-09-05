@@ -32,11 +32,11 @@ public class DatasetService {
         pw.println("file size ：" + fileSize + "\r\n");
     }
 
-    public static void processFormField(FileItem item, PrintWriter pw)
-            throws Exception
-    {
-        String name = item.getFieldName();
-        String value = item.getString();
-        pw.println(name + " : " + value + "\r\n");
-    }
+//    public static void processFormField(FileItem item, PrintWriter pw)
+//            throws Exception
+//    {
+//        String name = item.getFieldName();
+//        String value = item.getString();
+//        pw.println(name + " : " + value + "\r\n");
+//    }
 }

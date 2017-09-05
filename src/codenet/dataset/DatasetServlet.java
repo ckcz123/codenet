@@ -187,7 +187,7 @@ public class DatasetServlet extends HttpServlet{
 	private void upload(HttpServletRequest req,
 							  HttpServletResponse resp){
 		try{
-			String path = DowloadAddr+req.getParameter("username")+"/";
+			String path = DowloadAddr+"/";
 			File temp = new File(path);
 			if(!temp.exists())temp.mkdirs();
 			DiskFileItemFactory diskFactory = new DiskFileItemFactory();
@@ -203,11 +203,14 @@ public class DatasetServlet extends HttpServlet{
 				FileItem item = iter.next();
 				if(item.isFormField())
 				{
-					DatasetService.processFormField(item, pw);
+					if ("username".equals(item.getFieldName())) {
+						path = DowloadAddr+item.getString()+"/";
+					}
 				}else{
 					DatasetService.processUploadFile(item, pw, path);
 				}
 			}
+			pw.flush();
 		} catch (Exception e){
 			e.printStackTrace();
 		}

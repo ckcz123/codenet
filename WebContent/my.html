@@ -5,9 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-
-<input type="file" name="file" />
-<input type="submit" id="upload"/>
+<form id="upload-file-form" enctype="multipart/form-data">
+    <input type="hidden" name="username" value="oc"/>
+    <input type="file" name="file" id="dataset-file" />
+    <input type="button" id="upload"/>
+</form>
 
 <script src="./static/lib/jquery-3.2.1.min.js"></script>
 <script src="./static/js/my.js"></script>

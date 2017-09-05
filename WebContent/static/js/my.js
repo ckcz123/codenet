@@ -8,7 +8,16 @@ $(document).ready(function(){
 
 function upload(){
     console.log("upload")
-    $.post('./list?action=upload&username=oc', function(data){
-        console.log(data);
-    })
+    $.ajax({
+        url: '/list?action=upload&username=oc',
+        type: 'POST',
+        cache: false,
+        data: new FormData($('#upload-file-form')[0]),
+        processData: false,
+        contentType: false
+    }).done(function(res) {
+        console.log("success");
+    }).fail(function(res) {
+        console.log("fail");
+    });
 }
