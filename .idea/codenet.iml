@@ -14,7 +14,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file:///output/codenet" />
+    <output url="file:///build/codenet" />
     <output-test url="file:///test/codenet" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
