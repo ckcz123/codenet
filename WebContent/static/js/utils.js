@@ -13,3 +13,12 @@ function parseUrl(url){
 	parser.param=param;
 	return parser;
 }
+
+function logout() {
+    $.get('./list?action=logout', function(data){
+        var inputs = $("#discuss textarea");
+        inputs.prop("disabled", true);
+        $("#top-nav").empty();
+        $("#top-nav").append(Mustache.to_html('<li id="login"><a href="login.html">登录</a></li>'));
+    });
+}
