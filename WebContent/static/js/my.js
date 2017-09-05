@@ -9,7 +9,7 @@ $(document).ready(function(){
 function upload(){
     console.log("upload")
     $.ajax({
-        url: '/list?action=upload&username=oc',
+        url: '/list?action=upload',
         type: 'POST',
         cache: false,
         data: new FormData($('#upload-file-form')[0]),

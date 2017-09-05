@@ -50,7 +50,7 @@ public class DatasetServlet extends HttpServlet{
 		String action = req.getParameter("action");
 		switch (action) {
 		case "getAll": getAll(req, resp); break;
-		case "dowload": download(req, resp); break;
+		case "download": download(req, resp); break;
 		case "upload": upload(req, resp); break;
 		case "get": get(req, resp);break;
 		case "getDiscuss": getDiscuss(req, resp); break;

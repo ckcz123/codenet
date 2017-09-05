@@ -1,32 +1,41 @@
 <meta charset="UTF-8">
+<style>
+	.rating img {
+		height: 20px;
+		vertical-align: text-bottom;
+	}
+</style>
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<span style="font-weight: bold; font-size: 20px">{{name}}</span>
-		<span style="margin-left: 10px">{{rateval}}</span>
+		<span style="font-weight: bold; font-size: 20px">{{name}}</span> <span id="rate_{{id}}" class="rating" style="margin-left: 10px"></span>
+		<span style="margin-left: 5px">{{rateval}}</span>
 	</div>
 	<div class="panel-body">
 		<p>
-			{{shortdetail}} <a href="./detail.html?id={{id}}">details</a>
+			{{shortdetail}}
 		</p>
-		<p>
-			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-			贡献人: {{contributor}}
-		</p>
-		<p>
-			<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 评分人数:
-			{{rateuser}}
-		</p>
-		<p>
-			<span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 来源:
-			{{reference}}
-		</p>
-		<p>
-			<span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-			{{downloads}}次下载
-		</p>
+		<table width="100%" style="margin-bottom:8px">
+			<tr>
+				<td width="30%"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 评分/人数:
+					{{rateval}}/{{rateuser}}</td>
+				<td width="70%"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					贡献人: {{contributor}}</td>
+
+			</tr>
+			<tr>
+				<td width="30%"><span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+					{{downloads}}次下载</td>
+				<td width="70%"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 来源:
+					{{reference}}</td>
+
+			</tr>
+		</table>
+
+		<a type="button" class="btn btn-default" href="./detail.html?id={{id}}">数据格式说明</a>
 		<a type="button" class="btn btn-success"
-			href="list?action=dowload&id={{id}}&filename={{filename}}">点击下载</a> <a
+			href="list?action=download&id={{id}}&filename={{filename}}">点击下载</a> <a
 			type="button" class="btn btn-info"
 			href="detail.html?id={{id}}#discuss">进入讨论</a>
+
 	</div>
 </div>

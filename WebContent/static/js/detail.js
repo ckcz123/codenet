@@ -11,6 +11,7 @@ function getDetail(){
 		var html = $("#content");
 		$('#item_name').text(detail.name);
 		$('#content').html(Mustache.to_html(template, detail));
+        $('#detail').html($(detail.detail));
 		
 		var hash = window.location.hash;
 		$('.tab-pane').removeClass("active");
@@ -59,8 +60,6 @@ function getDetail(){
 					$("#top-nav").html(
 							Mustache.to_html('<li id="username"><a href="#">{{username}}</a></li><input id="uid" value="{{id}}" type="hidden"> \
 							<li> <a class="btn" onclick="logout()"><span class="glyphicon glyphicon-off" ></span></a></li>', user));
-					// $("#top-nav").append(Mustache.to_html(''));
-//					$("#top-nav").append(Mustache.to_html('<input id="uid" value="{{uid}}" type="hidden">', user));
 				}
 			});
 			
