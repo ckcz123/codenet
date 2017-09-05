@@ -46,14 +46,21 @@ public class CallbackServlet extends HttpServlet {
 		arg.deleteCharAt(arg.length()-1);
 		req.getSession().getServletContext().log(arg.toString());
 		String userInfo = HttpUtils.get("https://api.github.com/user", map);
-		resp.getWriter().write(userInfo);
-		resp.getWriter().flush();
+		userInfo = userInfo.replace("login", "username");
+		userInfo = userInfo.replace("avatar_url", "avatar");
 		Gson builder = new GsonBuilder().create();
 		UserBean user = builder.fromJson(userInfo, UserBean.class);
-//		System.out.println(user);
+
 		user = UserJDBC.getOrInsert(user);
-//		String userInfoUri = "https://api.github.com/user?"+access_token;
-//		resp.sendRedirect(userInfoUri);
+		
+////		Gson builder = new GsonBuilder().create();
+//		resp.getWriter().write(builder.toJson(user));
+//		resp.getWriter().flush();
+		req.getSession().setAttribute("user", user); 
+		String from = (String) req.getSession().getAttribute("from");
+		req.getSession().removeAttribute("from");
+		resp.sendRedirect("/codenet/detail.html?id="+from);
+		
 	}
 
 	@Override

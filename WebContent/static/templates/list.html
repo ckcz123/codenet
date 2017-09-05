@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<span style="font-weight: bold; font-size: 20px">{{name}}</span>
+		<span style="margin-left: 10px">{{rateval}}</span>
+	</div>
+	<div class="panel-body">
+		<p>
+			{{shortdetail}} <a href="./detail.html?id={{id}}">details</a>
+		</p>
+		<p>
+			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+			贡献人: {{contributor}}
+		</p>
+		<p>
+			<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 评分人数:
+			{{rateuser}}
+		</p>
+		<p>
+			<span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 来源:
+			{{reference}}
+		</p>
+		<p>
+			<span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+			{{downloads}}次下载
+		</p>
+		<a type="button" class="btn btn-success"
+			href="list?action=dowload&id={{id}}&filename={{filename}}">点击下载</a> <a
+			type="button" class="btn btn-info"
+			href="detail.html?id={{id}}#discuss">进入讨论</a>
+	</div>
+</div>

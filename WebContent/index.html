@@ -18,7 +18,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="./static/lib/ie-emulation-modes-warning.js.下载"></script>
+    <script src="./static/lib/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,13 +31,13 @@
 
     <div class="container">
       <div class="header">
-         <ul class="nav nav-pills pull-right" role="tablist">
+         <ul class="nav nav-pills pull-right" role="tablist" id="top-nav">
          <!-- <li role="presentation" class="active"><a href="http://v3.bootcss.com/examples/jumbotron-narrow/#">Home</a></li>
           <li role="presentation"><a href="http://v3.bootcss.com/examples/jumbotron-narrow/#">About</a></li>
           <li role="presentation"><a href="http://v3.bootcss.com/examples/jumbotron-narrow/#">Contact</a></li>-->
-          <li role="presentation"><a href="login.html">登录</a></li>
+          <!-- <li role="presentation"><a href="login.html">登录</a></li> -->
         </ul> 
-        <h3 class="text-muted"> <a href="index_ch.html">CODE NET</a> </h3>
+        <h3 class="text-muted"> <a href="index.html">CODE NET</a> </h3>
       </div>
 
       <div class="jumbotron">
@@ -46,7 +46,7 @@
         
       </div>
 
-       <div class="row marketing">
+      <div class="row marketing">
         <div class="col-lg-6">
           <h4>Subheading</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. <a href="#"> more </a></p>
@@ -63,7 +63,7 @@
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna. <a href="#"> more </a> </p>
         </div>
       </div> 
-      <div class="listlink"> <a class="btn btn-lg btn-success" href="./list" role="button"> 更多资源 </a></div>
+      <div class="listlink"> <a class="btn btn-lg btn-success" href="./list.html" role="button"> 更多资源 </a></div> 
       <div class="footer">
         <p><div>© PKU SEKE 2017  </div><div> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> w2qiao@pku.edu.cn </div></div>
 
@@ -72,7 +72,22 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./static/lib/ie10-viewport-bug-workaround.js.下载"></script>
+    <script src="./static/lib/ie10-viewport-bug-workaround.js"></script>
+    <script src="./static/lib/jquery-3.2.1.min.js"></script>
+    <script src="./static/lib/mustache.min.js"></script>
+    
+<!--     <script>
+    $.get('./list?action=user', function(data){
+		console.log(data);
+		if(data=='null'){
+			$("#top-nav").append(Mustache.to_html('<li id="login"><a href="login.html">登录</a></li>'));
+		}else{
+			var user = JSON.parse(data);
+			$("#top-nav").append(Mustache.to_html('<li id="username"><a href="#">{{username}}</a></li><input id="uid" value="{{id}}" type="hidden">', user));
+			$("#top-nav").append(Mustache.to_html('<li> <a class="btn" onclick="logout()"><span class="glyphicon glyphicon-off" ></span></a></li>'));
+//			$("#top-nav").append(Mustache.to_html('<input id="uid" value="{{uid}}" type="hidden">', user));
+		}
+	});</script> -->
   
 
 </body></html>

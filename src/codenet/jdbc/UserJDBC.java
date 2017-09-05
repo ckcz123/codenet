@@ -18,14 +18,14 @@ public class UserJDBC {
 		String sql = "select * from user where id=?";
 		List<UserBean> list= null;
 		try {
-			list = (List<UserBean>) qr.query(new DBconn().getConn(), sql, new BeanListHandler(UserBean.class), user.getId());
+			list = (List<UserBean>) qr.query(DBconn.getConn(), sql, new BeanListHandler(UserBean.class), user.getId());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(list.size()==0){
-			sql = "insert into user(id, username, avatar, email) values(?,?,?,?)";
+			sql = "insert into user(id, username, password, avatar, email) values(?,?,?,?,?)";
 			try {
-				return (UserBean) qr.insert(new DBconn().getConn(), sql, new BeanHandler(UserBean.class), user.getId(), user.getName(), user.getAvatar(), user.getEmail());
+				return (UserBean) qr.insert(DBconn.getConn(), sql, new BeanHandler(UserBean.class), user.getId(), user.getUsername(), user.getPassword(), user.getAvatar(), user.getEmail());
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -34,4 +34,44 @@ public class UserJDBC {
 		}
 		return null;
 	}
+	
+	public static UserBean get(long id){
+		QueryRunner qr = new QueryRunner();
+		String sql = "select * from user where id=?";
+		List<UserBean> list= null;
+		try {
+			list = (List<UserBean>) qr.query(DBconn.getConn(), sql, new BeanListHandler(UserBean.class), id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list.size()>0?list.get(0):null;
+	}
+	
+	public static boolean exists(String username) {
+		QueryRunner qr = new QueryRunner();
+		String sql = "select * from user where username=? or email=?";
+		List<UserBean> list= null;
+		try {
+			list = (List<UserBean>) qr.query(DBconn.getConn(), sql, new BeanListHandler(UserBean.class), username, username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return list.size()>0;
+	}
+	
+	public static UserBean login(String user) {
+		QueryRunner qr = new QueryRunner();
+		String sql = "select * from user where username=? or email=?";
+		List<UserBean> list= null;
+		try {
+			list = (List<UserBean>) qr.query(DBconn.getConn(), sql, new BeanListHandler(UserBean.class), user, user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (list==null || list.size()==0)
+			return null;
+		return list.get(0);
+	}
+	
 }

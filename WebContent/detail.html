@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
 	<link href="./static/lib/bootstrap.min.css" rel="stylesheet">
+	<link href="./static/lib/star-rating.css" rel="stylesheet">
 	
     <!-- Custom styles for this template -->
     <link href="./static/css/detail.css" rel="stylesheet">
@@ -19,7 +20,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="./static/lib/ie-emulation-modes-warning.js.下载"></script>
+    <script src="./static/lib/ie-emulation-modes-warning.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
@@ -31,21 +32,28 @@
 
     <div class="container">
       <div class="header">
-         <ul class="nav nav-pills pull-right" role="tablist">
+         <ul class="nav nav-pills pull-right" role="tablist" id="top-nav">
          <!-- <li role="presentation" class="active"><a href="http://v3.bootcss.com/examples/jumbotron-narrow/#">Home</a></li>
           <li role="presentation"><a href="http://v3.bootcss.com/examples/jumbotron-narrow/#">About</a></li>
           <li role="presentation"><a href="http://v3.bootcss.com/examples/jumbotron-narrow/#">Contact</a></li>-->
-          <li role="presentation"><a href="login.html">登录</a></li>
+          <!-- <li id="login"><a href="login.html">登录</a></li> -->
+          
         </ul>
-          <a href="index.html"><h3 class="text-muted">CODE NET</h3></a>
+          <h3 class="text-muted"><a href="index.html">CODE NET</a></h3>
       </div>
+
+		<ol class="breadcrumb">
+  			<li><a href="index.html">CODE NET</a></li>
+			<li><a href="list.html">Datasets</a></li>
+			<li class="active" id="item_name"></li>
+		</ol>
 
       <div class="row marketing">
 
         <ul class="nav nav-pills nav-stacked col-md-2">
-          <li class="active"><a href="#intro" data-toggle="pill">介绍</a></li>
-          <li><a href="#download" data-toggle="pill">下载</a></li>
-          <li><a href="#discuss" data-toggle="pill">讨论</a></li>
+          <li id="intro_li"><a href="#intro" data-toggle="pill">介绍</a></li>
+          <li id="download_li"><a href="#download" data-toggle="pill">下载</a></li>
+          <li id="discuss_li"><a href="#discuss" data-toggle="pill">讨论</a></li>
         </ul>
         <div class="tab-content col-md-10" id="content">
                 
@@ -59,12 +67,13 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./static/lib/ie10-viewport-bug-workaround.js.下载"></script>
+    <script src="./static/lib/ie10-viewport-bug-workaround.js"></script>
     <script src="./static/lib/jquery-3.2.1.min.js"></script>
     <script src="./static/lib/bootstrap.min.js"></script>
-   <script src="./static/lib/ie10-viewport-bug-workaround.js.下载"></script>
+    <script src="./static/lib/ie10-viewport-bug-workaround.js"></script>
     <script src="./static/lib/mustache.min.js"></script>
     <script src="./static/js/detail.js"></script>
     <script src="./static/js/utils.js"></script>
+    <script src="./static/lib/star-rating.js"></script>
 
 </body></html>
