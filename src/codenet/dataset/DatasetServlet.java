@@ -1,8 +1,10 @@
 package codenet.dataset;
 
-import java.security.MessageDigest;
+import java.io.File;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.io.BufferedInputStream;
@@ -17,9 +19,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,6 +36,7 @@ import codenet.bean.UserBean;
 import codenet.jdbc.DatasetJDBC;
 import codenet.jdbc.DiscussJDBS;
 import codenet.jdbc.UserJDBC;
+import codenet.service.DatasetService;
 import codenet.utils.EnvironmentProperty;
 
 @WebServlet(urlPatterns="/list")
@@ -42,10 +45,13 @@ public class DatasetServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		resp.setCharacterEncoding("utf-8");
 		String action = req.getParameter("action");
 		switch (action) {
 		case "getAll": getAll(req, resp); break;
 		case "dowload": download(req, resp); break;
+		case "upload": upload(req, resp); break;
 		case "get": get(req, resp);break;
 		case "getDiscuss": getDiscuss(req, resp); break;
 		case "getComment": getComment(req, resp); break;
@@ -75,7 +81,7 @@ public class DatasetServlet extends HttpServlet{
 		for (int i=0;i<jsonArray.size();i++) {
 			JsonElement element2 = jsonArray.get(i);
 			JsonObject object = element2.getAsJsonObject();
-			int user=object.get("rateuser").getAsInt();
+            int user=object.get("rateuser").getAsInt();
 			int rate=object.get("rate").getAsInt();
 			object.addProperty("rateval", user==0?"0.0":String.format("%.1f", rate/(user+.0)));
 		}
@@ -175,6 +181,35 @@ public class DatasetServlet extends HttpServlet{
 			}catch(IOException e){
 				e.printStackTrace();
 			}
+		}
+	}
+
+	private void upload(HttpServletRequest req,
+							  HttpServletResponse resp){
+		try{
+			String path = DowloadAddr+req.getParameter("username")+"/";
+			File temp = new File(path);
+			if(!temp.exists())temp.mkdirs();
+			DiskFileItemFactory diskFactory = new DiskFileItemFactory();
+			PrintWriter pw = resp.getWriter();
+			diskFactory.setSizeThreshold(4 * 1024);
+			diskFactory.setRepository(temp);
+			ServletFileUpload upload = new ServletFileUpload(diskFactory);
+			upload.setSizeMax(100 * 1024 * 1024);
+			List<FileItem> fileItems = upload.parseRequest(req);
+			Iterator<FileItem> iter = fileItems.iterator();
+			while(iter.hasNext())
+			{
+				FileItem item = iter.next();
+				if(item.isFormField())
+				{
+					DatasetService.processFormField(item, pw);
+				}else{
+					DatasetService.processUploadFile(item, pw, path);
+				}
+			}
+		} catch (Exception e){
+			e.printStackTrace();
 		}
 	}
 	
