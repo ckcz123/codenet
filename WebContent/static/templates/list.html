@@ -7,7 +7,7 @@
 </style>
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<span style="font-weight: bold; font-size: 20px">{{name}}</span> <span id="rate_{{id}}" class="rating" style="margin-left: 10px"></span>
+		<span style="font-weight: bold; font-size: 20px">{{title}}</span> <span id="rate_{{id}}" class="rating" style="margin-left: 10px"></span>
 		<span style="margin-left: 5px">{{rateval}}</span>
 	</div>
 	<div class="panel-body">
@@ -33,7 +33,7 @@
 
 		<a type="button" class="btn btn-default" href="./detail.html?id={{id}}">数据格式说明</a>
 		<a type="button" class="btn btn-success"
-			href="list?action=download&id={{id}}&filename={{filename}}">点击下载</a> <a
+			href="list?action=download&id={{id}}&filename={{filename}}&contributor={{contributor}}">点击下载</a> <a
 			type="button" class="btn btn-info"
 			href="detail.html?id={{id}}#discuss">进入讨论</a>
 

@@ -3,7 +3,7 @@ package codenet.bean;
 public class DatasetBean {
 
 	private int id;
-	private String name;
+	private String title;
 	private String filename;
 	private String shortdetail;
 	private String detail;
@@ -12,17 +12,18 @@ public class DatasetBean {
 	private int downloads;
 	private int rate;
 	private int rateuser;
+	private String size;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getDetail() {
 		return detail;
@@ -82,14 +83,20 @@ public class DatasetBean {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("id=").append(id).append('\n');
-		sb.append("name=").append(name).append('\n');
+		sb.append("title=").append(title).append('\n');
 		sb.append("detail=").append(detail).append('\n');
 		sb.append("contributor=").append(contributor).append('\n');
 		sb.append("reference=").append(reference).append('\n');
 		sb.append("dowloads=").append(downloads).append('\n');
 		return sb.toString();
 	}
-	
-	
-	
+
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
 }

@@ -10,7 +10,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import codenet.bean.CommentBean;
 import codenet.bean.DiscussBean;
 
-public class DiscussJDBS {
+public class DiscussJDBC {
 
 	public static List<DiscussBean> getDiscuss(int id) {
 		QueryRunner qr = new QueryRunner();

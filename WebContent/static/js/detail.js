@@ -9,7 +9,7 @@ function getDetail(){
 		var detail = JSON.parse(data)[0];
 		console.log(data);
 		var html = $("#content");
-		$('#item_name').text(detail.name);
+		$('#item_name').text(detail.title);
 		$('#content').html(Mustache.to_html(template, detail));
         $('#detail').html($(detail.detail));
 		

@@ -11,16 +11,16 @@
     <title>CODE NET</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./static/lib/bootstrap.min.css" rel="stylesheet">
-
+	<link href="./static/lib/bootstrap.min.css" rel="stylesheet">
+	<link href="./static/lib/star-rating.css" rel="stylesheet">
+	
     <!-- Custom styles for this template -->
-    <link href="./static/css/index.css" rel="stylesheet">
-    <link href="./static/lib/star-rating.css" rel="stylesheet">
+    <link href="./static/css/detail.css" rel="stylesheet">
+    <link href="./static/css/discuss.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="./static/lib/ie-emulation-modes-warning.js"></script>
-    <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
@@ -32,27 +32,41 @@
 
     <div class="container">
       <div class="header">
-         <!-- <ul class="nav nav-pills pull-right" role="tablist">
-          <li><a href="login.html">登录</a></li>
-        </ul>  -->
-          <ul class="nav nav-pills pull-right" role="tablist" id="top-nav"></ul>
-        <h3 class="text-muted"><a href="index.html">CODE NET</a></h3>
+        </ul>
+          <h3 class="text-muted"><a href="#">CODE NET</a></h3>
       </div>
-	 <div id="dataset"></div>
 
+		<ol class="breadcrumb">
+  			<li><a href="#">CODE NET</a></li>
+			<li><a href="#">Datasets</a></li>
+			<li class="active" id="title"></li>
+		</ol>
+
+      <div class="row marketing">
+        <ul class="nav nav-pills nav-stacked col-md-2">
+          <li class="active"><a href="#">介绍</a></li>
+          <li><a href="#">下载</a></li>
+          <li><a href="#">讨论</a></li>
+        </ul>
+        <div class="tab-content col-md-10" id="content">
+
+        </div><!-- tab content -->
+      </div>
       <div class="footer">
-        <p><div>© PKU SEKE 2017  </div><div> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> w2qiao@pku.edu.cn </div></div>
+        <p><div>© PKU SEKE 2017 </div> <div> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> w2qiao@pku.edu.cn </div>
+      </div>
 
     </div> <!-- /container -->
+
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./static/lib/ie10-viewport-bug-workaround.js"></script>
     <script src="./static/lib/jquery-3.2.1.min.js"></script>
+    <script src="./static/lib/bootstrap.min.js"></script>
+    <script src="./static/lib/ie10-viewport-bug-workaround.js"></script>
     <script src="./static/lib/mustache.min.js"></script>
-    <script src="./static/js/list.js"></script>
+    <script src="./static/js/preview.js"></script>
     <script src="./static/js/utils.js"></script>
     <script src="./static/lib/star-rating.js"></script>
-    <!-- <script src="./Narrow Jumbotron Template for Bootstrap_files/iconfont.js"></script> -->
-  
 
 </body></html>

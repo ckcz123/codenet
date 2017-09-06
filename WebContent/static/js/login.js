@@ -1,3 +1,13 @@
+$(document).ready(function() {
+    $('#username').keypress(function(e) {
+        if (e.keyCode==13)
+            $('#password').focus();
+    });
+    $('#password').keypress(function(e) {
+        if (e.keyCode==13)
+            login();
+    });
+});
 
 function loginGithub(){
 	var uri = 'login/github/oauth';
@@ -37,8 +47,12 @@ function login() {
 			alert("登录成功！");
 			// window.location="index.html";
 			var url = parseUrl(window.location.href);
-			if (url.param.from != '') {
-				window.location="detail.html?id="+url.param.from;
+			var from=url.param.from;
+			if (typeof(from)=="number") {
+				window.location="detail.html?id="+from;
+			}
+			else if (typeof(from)=="string") {
+				window.location=from;
 			}
 			else {
 				window.location="index.html";

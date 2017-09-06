@@ -1,20 +1,12 @@
 package codenet.test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.Test;
 
-import codenet.bean.DiscussBean;
 import codenet.bean.UserBean;
-import codenet.jdbc.DiscussJDBS;
 import codenet.jdbc.UserJDBC;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 public class UserTest {
 
@@ -31,14 +23,14 @@ public class UserTest {
 	
 //	@Test
 //	public void testGson() {
-//		List<DiscussBean>  list = DiscussJDBS.getDiscuss(1);
+//		List<DiscussBean>  list = DiscussJDBC.getDiscuss(1);
 //		Gson builder = new GsonBuilder().create();
 //		//System.out.println(builder.toJson(list));
 //		JsonElement element = builder.toJsonTree(list);
 //		JsonArray jsonArray = element.getAsJsonArray();
 //		for (int i=0;i<jsonArray.size();i++) {
 //			JsonObject object = jsonArray.get(i).getAsJsonObject();
-//			object.add("comments", builder.toJsonTree(DiscussJDBS.getComments(object.get("id").getAsInt())));
+//			object.add("comments", builder.toJsonTree(DiscussJDBC.getComments(object.get("id").getAsInt())));
 //		}
 //		System.out.println(element.toString());
 //		

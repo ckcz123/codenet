@@ -25,17 +25,7 @@ function getDataset(){
 		});
 	});
 
-    $.get('./list?action=user', function(data){
-        console.log(data);
-        if(data=='null'){
-            $("#top-nav").html(Mustache.to_html('<li id="login"><a href="login.html?from={{id}}">登录</a></li>', detail));
-        }else{
-            var user = JSON.parse(data);
-            $("#top-nav").html(
-                Mustache.to_html('<li id="username"><a href="#">{{username}}</a></li><input id="uid" value="{{id}}" type="hidden"> \
-							<li> <a class="btn" onclick="logout()"><span class="glyphicon glyphicon-off" ></span></a></li>', user));
-        }
-    });
+    getuser("list.html");
 
 }
 
