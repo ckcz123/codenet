@@ -210,7 +210,7 @@ public class DatasetServlet extends HttpServlet{
 			diskFactory.setSizeThreshold(4 * 1024);
 			diskFactory.setRepository(temp);
 			ServletFileUpload upload = new ServletFileUpload(diskFactory);
-			upload.setSizeMax(100 * 1024 * 1024);
+			upload.setSizeMax(1024L * 1024L * 1024L);
 			List<FileItem> fileItems = upload.parseRequest(req);
 			Iterator<FileItem> iter = fileItems.iterator();
 			while(iter.hasNext())
